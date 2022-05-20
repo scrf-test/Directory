@@ -1,62 +1,84 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
+name: Add New User
+description: Start the onboarding process of a person into the SCRF ecosystem.
+title: "Person Full Name"
 labels: ["bug", "triage"]
 assignees:
-  - octocat
+  - SirAh0
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this new user form!
+
+# ------------------------- [ Full Name ]
+  - type: input
+    id: full-name
+    attributes:
+      label: Full Name      
+    validations:
+      required: true
+
+# ------------------------- [ Preferred Contact Method ]
   - type: input
     id: contact
     attributes:
-      label: Contact Details
+      label: Preferred Contact Method
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
     validations:
       required: false
-  - type: textarea
-    id: what-happened
+
+# ------------------------- [ Discord Chat Username ]
+  - type: input
+    id: chat-username
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Discord Chat Username
+      description: user#1234      
+    validations:
+      required: false
+
+# ------------------------- [ Discourse Forum Username ]
+  - type: input
+    id: forum-username
+    attributes:
+      label: Discourse Forum Username
+      description: user#1234      
+    validations:
+      required: true
+
+# ------------------------- [ GitHub Username ]
+  - type: input
+    id: github-username
+    attributes:
+      label: Discourse Forum Username      
+
+  - type: dropdown
+    id: vertical
+    attributes:
+      label: Vertical
+      description: What vertical does this person belong to?
+      options:
+        - None
+        - Content
+        - Engagement
+        - Discovery
+        - Outreach
+        - Operations
     validations:
       required: true
   - type: dropdown
-    id: version
+    id: role-level
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Role Level
+      description: What role level does this person have?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
-    validations:
-      required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+        - Community
+        - Contributor
+        - Core
+        - Lead
+        - Head
   - type: textarea
-    id: logs
+    id: transcript
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: Chat Application Transcripts
+      description: Please copy and paste the contents of the generated transcript file if there is one.
