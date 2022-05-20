@@ -23,6 +23,23 @@ body:
       label: Preferred Contact Method
       description: Chat, email, forum, phone call, vulcan mind meld?
   
+  - type: input
+    id: chat-username
+    attributes:
+      label: Discord Chat Username
+      description: user#1234    
+
+  - type: input
+    id: forum-username
+    attributes:
+      label: Discourse Forum Username
+
+  - type: input
+    id: github-username
+    attributes:   
+      label: GitHub Username         
+
+      
 
   - type: textarea
     id: transcript
