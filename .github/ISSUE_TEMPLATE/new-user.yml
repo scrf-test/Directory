@@ -1,7 +1,7 @@
 name: Add New User
 description: Start the onboarding process of a person into the SCRF ecosystem.
-title: "Person Full Name"
-labels: ["bug", "triage"]
+title: "Persons Full Name"
+labels: []
 assignees:
   - SirAh0
 body:
@@ -9,7 +9,6 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this new user form!
-
 # ------------------------- [ Full Name ]
   - type: input
     id: full-name
@@ -17,7 +16,6 @@ body:
       label: Full Name      
     validations:
       required: true
-
 # ------------------------- [ Preferred Contact Method ]
   - type: input
     id: contact
@@ -27,7 +25,6 @@ body:
       placeholder: ex. email@example.com
     validations:
       required: false
-
 # ------------------------- [ Discord Chat Username ]
   - type: input
     id: chat-username
@@ -36,7 +33,6 @@ body:
       description: user#1234      
     validations:
       required: false
-
 # ------------------------- [ Discourse Forum Username ]
   - type: input
     id: forum-username
@@ -45,13 +41,11 @@ body:
       description: user#1234      
     validations:
       required: true
-
 # ------------------------- [ GitHub Username ]
   - type: input
     id: github-username
     attributes:
       label: Discourse Forum Username      
-
   - type: dropdown
     id: vertical
     attributes:
