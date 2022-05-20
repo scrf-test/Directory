@@ -45,7 +45,7 @@ body:
       label: Vertical
       description: What vertical does this person belong to?
       options:
-        - None
+        - None (Default)
         - Content
         - Engagement
         - Discovery
