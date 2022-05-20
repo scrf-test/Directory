@@ -39,7 +39,21 @@ body:
     attributes:   
       label: GitHub Username         
 
-      
+  - type: dropdown
+    id: vertical
+    attributes:
+      label: Vertical
+      description: What vertical does this person belong to?
+      options:
+        - None
+        - Content
+        - Engagement
+        - Discovery
+        - Outreach
+        - Operations
+    validations:
+      required: true
+
 
   - type: textarea
     id: transcript
