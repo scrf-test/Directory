@@ -16,8 +16,14 @@ body:
       label: Full Name      
     validations:
       required: true
-      
-              
+
+  - type: input
+    id: preferred-contact
+    attributes:
+      label: Preferred Contact Method
+      description: Chat, email, forum, phone call, vulcan mind meld?
+  
+
   - type: textarea
     id: transcript
     attributes:
