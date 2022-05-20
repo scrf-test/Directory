@@ -27,14 +27,12 @@ body:
     id: chat-username
     attributes:
       label: Discord Chat Username
-      description: user#1234      
     validations:
       required: false
   - type: input
     id: forum-username
     attributes:
-      label: Discourse Forum Username
-      description: user#1234      
+      label: Discourse Forum Username     
     validations:
       required: true
   - type: input
