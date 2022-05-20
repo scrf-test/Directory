@@ -54,6 +54,19 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: role-level
+    attributes:
+      label: Role Level
+      description: What role level does this person have?
+      options:
+        - Community (default)
+        - Contributor
+        - Core
+        - Lead
+        - Head
+    validations:
+      required: true        
 
   - type: textarea
     id: transcript
