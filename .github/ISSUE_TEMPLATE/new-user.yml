@@ -1,9 +1,9 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
+name: Add New User
+description: Start the onboarding process of a person into the SCRF ecosystem.
+title: "Persons Full Name"
+labels: []
 assignees:
-  - octocat
+  - SirAh0
 body:
   - type: markdown
     attributes:
