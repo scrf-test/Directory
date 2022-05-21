@@ -1,0 +1,11 @@
+name: Simple
+description: Just one click away!
+title: "A really simple ticket"
+labels: []
+assignees:
+  - SirAh0
+body:
+  - type: markdown
+    attributes:
+      value: | 
+      ## What a simple form!
