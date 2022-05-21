@@ -1,10 +1,7 @@
 name: Simple
 description: Just one click away!
-title: "Persons Full Name"
+title: "New Simple Issue"
 labels: []
 assignees:
   - SirAh0
 body:
-- type: markdown
-  attributes:
-    value: "## Thank you for contributing to our project!"
