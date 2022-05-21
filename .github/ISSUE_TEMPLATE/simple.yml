@@ -7,5 +7,4 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: | 
-      "## What a simple form!"
+      value: "## What a simple form!"
