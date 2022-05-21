@@ -9,10 +9,3 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this new user form!
-
-  - type: input
-    id: full-name
-    attributes:
-      label: Full Name      
-    validations:
-      required: true
