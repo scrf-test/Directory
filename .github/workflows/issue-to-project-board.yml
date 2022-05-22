@@ -2,13 +2,27 @@ name: Move assigned card
 on:
   issues:
     types:
-      - assigned
+      - opened
+
+# map fields with customized labels
+env:
+  todo: Todo ✏️
+  done: Done ✅
+  in_progress: In Progress 🚧
+  
+
 jobs:
-  move-assigned-card:
+  issue_opened:
+    name: issue_opened
     runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && (github.event.action == 'opened' )
     steps:
-      - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+      - name: Move issue to ${{ env.todo }}
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
-          project: Directory
-          column: Review
-          repo-token: ${{ secrets.ADD_ISSUE_TO_PROJECT_BOARD }}
+          gh_token: ${{ secrets.ADD_ISSUE_TO_PROJECT_BOARD }}
+          user: SirAh0
+          # organization: sample-org
+          project_id: 8
+          resource_node_id: ${{ github.event.issue.node_id }}
+          status_value: ${{ env.todo }} # Target status
