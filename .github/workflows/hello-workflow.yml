@@ -1,9 +1,11 @@
 name: learn-github-actions
 on:
   issues:
-    types: [opened]
+    types: 
+      - opened
+
 jobs:
-  name-of-job:
+  hello-workflow:
     runs-on: ubuntu-latest
     steps:
       - run: "echo hello-workflow.yml!"
