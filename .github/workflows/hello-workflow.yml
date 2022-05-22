@@ -6,7 +6,7 @@ on:
     - opened
 
 jobs:
-  hello-workflow:
+  helloworld:
     runs-on: ubuntu-latest
 
     steps:
