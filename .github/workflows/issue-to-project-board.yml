@@ -9,7 +9,9 @@ env:
   todo: Todo ✏️
   done: Done ✅
   in_progress: In Progress 🚧
-  
+  user: SirAh0
+  project_id: 8
+  gh_project_token: ${{ secrets.ADD_ISSUE_TO_PROJECT_BOARD }}
 
 jobs:
   issue_opened:
@@ -20,9 +22,9 @@ jobs:
       - name: Move issue to ${{ env.todo }}
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         with:
-          gh_token: ${{ secrets.ADD_ISSUE_TO_PROJECT_BOARD }}
-          user: SirAh0
+          gh_token: ${{ env.gh_project_token }}
+          user: ${{ env.user }}
           # organization: sample-org
-          project_id: 8
+          project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
-          status_value: ${{ env.todo }} # Target status
+          status_value: ${{ env.todo }} 
