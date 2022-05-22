@@ -21,6 +21,9 @@ jobs:
     steps:
       - name: Move issue to ${{ env.todo }}
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        env:
+          DEBUG_COMMANDS: true
+          DEBUG_LOG: true
         with:
           gh_token: ${{ env.gh_project_token }}
           user: ${{ env.user }}
