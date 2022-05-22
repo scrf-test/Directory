@@ -5,6 +5,5 @@ on:
 jobs:
   name-of-job:
     runs-on: ubuntu-latest
-      steps:
-        - run: |
-        echo 'hello-workflow.yml!'
+    steps:
+      - run: "echo hello-workflow.yml!"
