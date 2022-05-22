@@ -1,9 +1,8 @@
-name: learn-github-actions
+name: 🏗 learn-github-actions
 
 on:
-  pull_request:
-    branches:
-      - main
+  issues:
+    types: [opened]
 
 jobs:
   helloworld:
