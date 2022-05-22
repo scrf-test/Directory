@@ -8,4 +8,4 @@ jobs:
   helloworld:
     runs-on: ubuntu-latest
     steps:
-    - run: echo "hello-workflow.yml!"
+    - run: echo "did you catch it? hello-workflow.yml!"
