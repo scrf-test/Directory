@@ -1,4 +1,4 @@
-name: Move assigned card
+name: New Issue to Org Chart PB
 on:
   issues:
     types:
@@ -6,12 +6,12 @@ on:
 
 # map fields with customized labels
 env:
-  todo: Todo ✏️
+  start: Start ✏️
   done: Done ✅
   in_progress: In Progress 🚧
   user: SirAh0
   project_id: 8
-  gh_project_token: ${{ secrets.ADD_ISSUE_TO_PROJECT_BOARD }}
+  gh_project_token: ${{ secrets.ORG_WRITE }}
 
 jobs:
   issue_opened:
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'issues' && (github.event.action == 'opened' )
     steps:
-      - name: Move issue to ${{ env.todo }}
+      - name: Move issue to ${{ env.start }}
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_COMMANDS: true
@@ -30,4 +30,4 @@ jobs:
           # organization: sample-org
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
-          status_value: ${{ env.todo }} 
+          status_value: ${{ env.start }} 
