@@ -32,10 +32,10 @@ jobs:
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
-          custom_field_values: "[
+          custom_field_values: '[
             {
               \"name\": \"Role Level\", # defines the name of the custom field
               \"type\": \"text\", # can be one of: text, number, date, single_select, iteration
               \"value\": \"Head\" # defines the value to set (string)
             }
-          ]"
+          ]'
