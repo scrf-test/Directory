@@ -1,9 +1,6 @@
 name: New Issue Meta Data
 
-#on:
-#  issues:
-#    types:
-#      - assigned
+on: issues
 
 env:
   gh_organization: scrf-test
