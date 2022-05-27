@@ -6,7 +6,11 @@ env:
   gh_organization: scrf-test
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-  #custom_field_values: '[{ \"name\": \"Role Level\", \"type\": \"text\", \"value\": \"Head\" }]'
+  custom_field_values: '[{ 
+    \"name\": \"Role Level\", 
+    \"type\": \"text\", 
+    \"value\": \"Head\" 
+  }]'
 
 jobs:
   issue_assigned:
