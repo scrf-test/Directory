@@ -1,16 +1,30 @@
 name: New Issue Meta Data
 
-on:
-  issues:
-    types:
-      - assigned
+#on:
+#  issues:
+#    types:
+#      - assigned
+
+env:
+  gh_organization: scrf-test
+  project_id: 8  
+  gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+  #custom_field_values: '[{ \"name\": \"Role Level\", \"type\": \"text\", \"value\": \"Head\" }]'
 
 jobs:
-  move-assigned-card:
+  issue_assigned:
+    name: issue_assigned
     runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && (github.event.action == 'assigned' )
     steps:
-      - uses: alex-page/github-project-automation-plus@5bcba1c1c091a222584d10913e5c060d32c44044
+      - name: 'modify custom fields'
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        env:
+          DEBUG_LOG: "true"
         with:
-          project: Docs Work
-          column: In Progress
-          repo-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          gh_token: ${{ env.gh_project_token }}
+          organization: ${{ env.gh_organization }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          operation_mode: custom_field
+          custom_field_values: "" # ${{ env.custom_field_values }}
