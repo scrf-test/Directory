@@ -3,7 +3,7 @@ name: New Issue Meta Data
 on:
   issues:
     types:
-      - assigned
+      - [assigned]
 
 env:
   gh_organization: scrf-test
