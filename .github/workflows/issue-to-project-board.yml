@@ -1,4 +1,4 @@
-name: New Issue to project
+name: New Issue to Project Board
 
 on:
   issues:

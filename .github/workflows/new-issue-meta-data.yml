@@ -1,0 +1,42 @@
+name: New Issue Meta Data
+
+on:
+  issues:
+    types:
+      - assigned
+
+env:
+  todo: Start ✏️
+  done: Done ✅
+  in_progress: In Progress 🚧
+  user: SirAh0
+  org: scrf-test
+  project_id: 8
+  gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+
+jobs:
+  issue_opened:
+    name: issue_opened
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && (github.event.action == 'assigned' )
+    steps:
+      - name: set custom field - role level head
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        env:
+          DEBUG_COMMANDS: true
+          DEBUG_LOG: true
+        with:
+          gh_token: ${{ env.gh_project_token }}
+          organization: ${{ env.org }}
+          # organization: sample-org
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          operation_mode: custom_field
+          custom_field_values:
+          "[
+            {
+              \"name\": \"Role Level\", # defines the name of the custom field
+              \"type\": \"text\", # can be one of: text, number, date, single_select, iteration
+              \"value\": \"Head\" # defines the value to set (string)
+            }
+          ]"
