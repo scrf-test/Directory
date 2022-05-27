@@ -28,4 +28,4 @@ jobs:
           project_id: ${{ env.project_id }}
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
-          custom_field_values: "" # ${{ env.custom_field_values }}
+          custom_field_values: ${{ env.custom_field_values }}
