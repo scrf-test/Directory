@@ -31,9 +31,9 @@ jobs:
           key: "Role Level"
           value: "Contributor"
           custom_field_values: '[{ 
-              \"name\": \"${{env.key}}\", 
+              \"name\": \"Role Level\", 
               \"type\": \"single_select\", 
-              \"value\": \"${{env.value}}\" 
+              \"value\": \"Contributor\" 
             }]'          
         with:
           gh_token: ${{ env.gh_project_token }}
@@ -58,3 +58,10 @@ jobs:
 # key : "Role Level"
 # value : "Contributor"
 # TODO: Map... [{ \"name\" : \"${{env.key}}"\, \"type\":\"single_select", \"value\":\"${{env.value}}\"]        
+
+
+#          custom_field_values: '[{ 
+#              \"name\": \"${{env.key}}\", 
+#              \"type\": \"single_select\", 
+#              \"value\": \"${{env.value}}\" 
+#            }]'          
