@@ -17,16 +17,15 @@ jobs:
       - name: Issue Parse
         id: parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
-
-        env:
-          key: "Role Level"
-          value: "Contributor"
-            custom_field_values: '[{ 
-              \"name\": \"${{env.key}}\", 
-              \"type\": \"single_select\", 
-              \"value\": \"${{env.value}}\" 
-            }]'
-                    
+#        run:
+#          key: "Role Level"
+#          value: "Contributor"
+#            custom_field_values: '[{ 
+#              \"name\": \"${{env.key}}\", 
+#              \"type\": \"single_select\", 
+#              \"value\": \"${{env.value}}\" 
+#            }]'
+#
         with: 
           github_token: ${{ env.gh_project_token }}
           issue_id: ${{ env.issue_id }}
@@ -56,6 +55,13 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
+          key: "Role Level"
+          value: "Contributor"
+            custom_field_values: '[{ 
+              \"name\": \"${{env.key}}\", 
+              \"type\": \"single_select\", 
+              \"value\": \"${{env.value}}\" 
+            }]'          
         with:
           gh_token: ${{ env.gh_project_token }}
           organization: ${{ env.gh_organization }}
@@ -63,4 +69,4 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.custom_field_values }}
-        - run : echo "${{ env.custom_field_values }}"
+        - run : echo "${{ steps.parse.outputs.payload }}"
