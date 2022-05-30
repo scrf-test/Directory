@@ -25,7 +25,7 @@ jobs:
           
       - name: Output
         if: contains( steps.issue_parse.outputs.payload, 'Contributor' )
-          run : echo "${{ steps.issue_parse.outputs.payload }}"
+          run: echo "${{ steps.issue_parse.outputs.payload }}"
 #
 #      - name: 'modify custom fields'
 #        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
