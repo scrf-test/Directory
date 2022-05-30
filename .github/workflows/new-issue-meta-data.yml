@@ -27,7 +27,8 @@ jobs:
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
-          label_marker_end: '>>'    
+          label_marker_end: '>>'  
+          payload: ${{ steps.parse.outputs.payload }}
 
       - name: Show parsed data JSON
       # echo "${{ steps.parse.outputs.payload }}"              
@@ -35,7 +36,7 @@ jobs:
       # Run echo "{"Role Level":"Contributor"}"
       # {Role Level:Contributor}
         run: |
-          echo "${{ steps.parse.outputs.payload }}"
+          echo "payload is: ${{ env.payload }}"
           
                       
 
