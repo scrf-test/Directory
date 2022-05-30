@@ -35,8 +35,8 @@ jobs:
       # Run echo "{"Role Level":"Contributor"}"
       # {Role Level:Contributor}
         run: |
-          echo "${{ steps.parse.outputs.payload[\"Role Level \"] }}"
-          echo "Issue body: ${{ github.event.issue.body }}"
+          echo "${{ steps.parse.outputs.payload }}"
+          
                       
 
       - name: 'modify custom fields'
