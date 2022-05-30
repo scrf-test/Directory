@@ -27,6 +27,9 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
+          key: "Role Level"
+          value: "Contributor"
+          custom_field_values: "asdf"
         with:
           gh_token: ${{ env.gh_project_token }}
           organization: ${{ env.gh_organization }}
