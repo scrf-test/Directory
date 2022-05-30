@@ -22,6 +22,7 @@ jobs:
       - name: Issue Parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
         with: 
+          github_token: ${{ env.gh_project_token }}
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
