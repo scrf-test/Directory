@@ -15,41 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Issue Parse
-        id: parse
+        id: issue_parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
-#        run:
-#          key: "Role Level"
-#          value: "Contributor"
-#            custom_field_values: '[{ 
-#              \"name\": \"${{env.key}}\", 
-#              \"type\": \"single_select\", 
-#              \"value\": \"${{env.value}}\" 
-#            }]'
-#
         with: 
           github_token: ${{ env.gh_project_token }}
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '>>'                  
-
-
-      # - name: Set Shared Data
-      #   env:        
-      #     payload: ${{ steps.parse.outputs.payload }}
-        
-
-        # run: |
-          # echo "payload is: ${{ env.payload }}"
-      # echo "${{ steps.parse.outputs.payload }}"              
-      # OUTPUT      
-      # Run echo "{"Role Level":"Contributor"}"
-      # {Role Level:Contributor}     
-      # key : "Role Level"
-      # value : "Contributor"
-      # TODO: Map... [{ \"name\" : \"${{env.key}}"\, \"type\":\"single_select", \"value\":\"${{env.value}}\"]
-      
-      
 
       - name: 'modify custom fields'
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
@@ -69,4 +42,19 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.custom_field_values }}
-        - run : echo "${{ steps.parse.outputs.payload }}"
+        - run : echo "${{ steps.issue_parse.outputs.payload }}"
+
+# - name: Set Shared Data
+#   env:        
+#     payload: ${{ steps.parse.outputs.payload }}
+  
+
+  # run: |
+    # echo "payload is: ${{ env.payload }}"
+# echo "${{ steps.parse.outputs.payload }}"              
+# OUTPUT      
+# Run echo "{"Role Level":"Contributor"}"
+# {Role Level:Contributor}     
+# key : "Role Level"
+# value : "Contributor"
+# TODO: Map... [{ \"name\" : \"${{env.key}}"\, \"type\":\"single_select", \"value\":\"${{env.value}}\"]        
