@@ -31,7 +31,7 @@ jobs:
       - name: Set Shared Data
         env:
           payload: ${{ steps.parse.outputs.payload }}
-        run: echo "payload is ... "
+        
 
         # run: |
           # echo "payload is: ${{ env.payload }}"
@@ -53,3 +53,4 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.custom_field_values }}
+        run : echo "${{ env.payload }}"
