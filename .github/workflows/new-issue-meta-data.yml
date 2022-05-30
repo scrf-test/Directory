@@ -27,12 +27,14 @@ jobs:
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
-          label_marker_end: '<<'    
+          label_marker_end: '>>'    
 
       - name: Show parsed data JSON
       # echo "${{ steps.parse.outputs.payload }}"              
         run: |
-          echo "${{ steps }}"              
+          var_dump("${{ steps }}")
+          echo "Issue body: ${{ github.event.issue.body }}"
+                      
 
       - name: 'modify custom fields'
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
