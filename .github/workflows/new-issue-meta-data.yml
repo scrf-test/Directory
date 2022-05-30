@@ -27,13 +27,20 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '>>'                  
-        run: |
-          echo "payload is: ${{ env.payload }}"
+
+      - name: Set Shared Data
+        env:
+          payload: ${{ steps.parse.outputs.payload }}
+        run: echo "payload is ... "
+
+        # run: |
+          # echo "payload is: ${{ env.payload }}"
       # echo "${{ steps.parse.outputs.payload }}"              
       # OUTPUT
       # Run echo "{"Role Level":"Contributor"}"
       # {Role Level:Contributor}          
-                      
+      
+      
 
       - name: 'modify custom fields'
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
