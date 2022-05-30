@@ -6,7 +6,6 @@ env:
   gh_organization: scrf-test
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-  role_levels: ['None', 'Community']
   custom_field_values: '[{ 
     \"name\": \"Role Level\", 
     \"type\": \"single_select\", 
