@@ -32,7 +32,7 @@ jobs:
       - name: Show parsed data JSON
       # echo "${{ steps.parse.outputs.payload }}"              
         run: |
-          echo "${{ toJson(steps) }}"
+          echo "${{ steps.parse.outputs.payload }}"
           echo "Issue body: ${{ github.event.issue.body }}"
                       
 
