@@ -17,7 +17,6 @@ jobs:
   issue_assigned:
     name: issue_assigned
     runs-on: ubuntu-latest
-    if: github.event_name == 'issues' && (github.event.action == 'assigned' )
     steps:
       - name: Issue Parse
         id: parse
@@ -27,17 +26,13 @@ jobs:
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
-          label_marker_end: '>>'  
-          payload: ${{ steps.parse.outputs.payload }}
-
-      - name: Show parsed data JSON
+          label_marker_end: '>>'                  
+        run: |
+          echo "payload is: ${{ env.payload }}"
       # echo "${{ steps.parse.outputs.payload }}"              
       # OUTPUT
       # Run echo "{"Role Level":"Contributor"}"
-      # {Role Level:Contributor}
-        run: |
-          echo "payload is: ${{ env.payload }}"
-          
+      # {Role Level:Contributor}          
                       
 
       - name: 'modify custom fields'
