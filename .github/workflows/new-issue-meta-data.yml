@@ -57,7 +57,7 @@ jobs:
           DEBUG_LOG: "true"
           key: "Role Level"
           value: "Contributor"
-            custom_field_values: '[{ 
+          custom_field_values: '[{ 
               \"name\": \"${{env.key}}\", 
               \"type\": \"single_select\", 
               \"value\": \"${{env.value}}\" 
