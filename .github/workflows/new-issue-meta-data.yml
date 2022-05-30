@@ -24,7 +24,7 @@ jobs:
           label_marker_end: '>>'                  
           
       - name: Output
-#        if: contains( steps.issue_parse.outputs.payload, 'Contributor' )
+        if: contains( steps.issue_parse.outputs.payload, 'Contributor' )
         run: echo "${{ steps.issue_parse.outputs.payload }}"
 #
 #      - name: 'modify custom fields'
