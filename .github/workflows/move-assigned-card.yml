@@ -1,1 +1,6 @@
 on: issues
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: View issue information
