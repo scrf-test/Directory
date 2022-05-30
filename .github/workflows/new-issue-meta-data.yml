@@ -7,11 +7,7 @@ env:
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
-  custom_field_values: '[{ 
-    \"name\": \"Role Level\", 
-    \"type\": \"single_select\", 
-    \"value\": \"Head\" 
-  }]'
+
 
 jobs:
   issue_assigned:
@@ -27,18 +23,30 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '>>'                  
+        run:
+          env:
+            key: "Role Level"
+            value: "Contributor"
+              custom_field_values: '[{ 
+                \"name\": \"${{env.key}}\", 
+                \"type\": \"single_select\", 
+                \"value\": \"${{env.value}}\" 
+              }]'
 
-      - name: Set Shared Data
-        env:
-          payload: ${{ steps.parse.outputs.payload }}
+      # - name: Set Shared Data
+      #   env:        
+      #     payload: ${{ steps.parse.outputs.payload }}
         
 
         # run: |
           # echo "payload is: ${{ env.payload }}"
       # echo "${{ steps.parse.outputs.payload }}"              
-      # OUTPUT
+      # OUTPUT      
       # Run echo "{"Role Level":"Contributor"}"
-      # {Role Level:Contributor}          
+      # {Role Level:Contributor}     
+      # key : "Role Level"
+      # value : "Contributor"
+      # TODO: Map... [{ \"name\" : \"${{env.key}}"\, \"type\":\"single_select", \"value\":\"${{env.value}}\"]
       
       
 
@@ -53,4 +61,4 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.custom_field_values }}
-        run : echo "${{ env.payload }}"
+        run : echo "${{ env.custom_field_values }}"
