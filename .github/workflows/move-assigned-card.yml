@@ -4,3 +4,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: View issue information
+        run: | # TODO: move assigned card
+          echo "Issue title: ${{ github.event.issue.title }}"
+          
