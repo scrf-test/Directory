@@ -1,9 +1,9 @@
 name: New Issue to Project Board
 
-on:
-  issues:
-    types:
-      - opened
+on: pull_request
+  #issues:
+    #types:
+      #- opened
 
 jobs:
   add-to-project:
