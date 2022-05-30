@@ -22,21 +22,23 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '>>'                  
-
-      - name: 'modify custom fields'
-        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
-        env:
-          DEBUG_LOG: "true"
-          key: "Role Level"
-          value: "Contributor"
-          custom_field_values: "asdf"
-        with:
-          gh_token: ${{ env.gh_project_token }}
-          organization: ${{ env.gh_organization }}
-          project_id: ${{ env.project_id }}
-          resource_node_id: ${{ github.event.issue.node_id }}
-          operation_mode: custom_field
-          custom_field_values: ${{ env.custom_field_values }}
+        - run : echo "${{ steps.issue_parse.outputs.payload['Job Role'] }}"
+#
+#      - name: 'modify custom fields'
+#        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+#        env:
+#          DEBUG_LOG: "true"
+#          key: "Role Level"
+#          value: "Contributor"
+#          custom_field_values: "asdf"
+#        with:
+#          gh_token: ${{ env.gh_project_token }}
+#          organization: ${{ env.gh_organization }}
+#          project_id: ${{ env.project_id }}
+#          resource_node_id: ${{ github.event.issue.node_id }}
+#          operation_mode: custom_field
+#          custom_field_values: ${{ env.custom_field_values }}
+        
 
 # - name: Set Shared Data
 #   env:        
