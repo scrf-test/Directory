@@ -22,7 +22,7 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '>>'                  
-        - run : echo "${{ steps.issue_parse.outputs.payload['Job Role'] }}"
+        run : echo "${{ steps.issue_parse.outputs.payload['Job Role'] }}"
 #
 #      - name: 'modify custom fields'
 #        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
