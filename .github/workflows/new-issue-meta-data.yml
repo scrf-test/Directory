@@ -21,11 +21,10 @@ jobs:
           issue_id: ${{ env.issue_id }}
           separator: '###'
           label_marker_start: '>>'
-          label_marker_end: '>>'                  
-          
+          label_marker_end: '>>'                        
       - name: Output
         if: contains( steps.issue_parse.outputs.payload, 'Role Level' )
-        run: echo "${{ steps.issue_parse.outputs.payload }}"
+        run: echo "${{ steps.issue_parse.outputs.payload.ROLE_LEVEL }}"
 #
 #      - name: 'modify custom fields'
 #        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
