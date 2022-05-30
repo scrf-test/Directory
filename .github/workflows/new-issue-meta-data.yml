@@ -30,11 +30,7 @@ jobs:
           DEBUG_LOG: "true"
           key: "Role Level"
           value: "Contributor"
-          custom_field_values: '[{ 
-              \"name\": \"Role Level\", 
-              \"type\": \"single_select\", 
-              \"value\": \"Contributor\" 
-            }]'          
+          custom_field_values: "asdf"
         with:
           gh_token: ${{ env.gh_project_token }}
           organization: ${{ env.gh_organization }}
