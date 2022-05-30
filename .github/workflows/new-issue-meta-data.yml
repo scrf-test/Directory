@@ -8,7 +8,6 @@ env:
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
 
-
 jobs:
   issue_assigned:
     name: issue_assigned
@@ -28,9 +27,6 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
-          key: "Role Level"
-          value: "Contributor"
-          custom_field_values: "asdf"
         with:
           gh_token: ${{ env.gh_project_token }}
           organization: ${{ env.gh_organization }}
@@ -38,7 +34,6 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.custom_field_values }}
-        - run : echo "${{ steps.issue_parse.outputs.payload }}"
 
 # - name: Set Shared Data
 #   env:        
