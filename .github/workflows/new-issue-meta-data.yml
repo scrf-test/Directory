@@ -20,6 +20,7 @@ jobs:
     if: github.event_name == 'issues' && (github.event.action == 'assigned' )
     steps:
       - name: Issue Parse
+        id: parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
         with: 
           github_token: ${{ env.gh_project_token }}
@@ -29,8 +30,9 @@ jobs:
           label_marker_end: '<<'    
 
       - name: Show parsed data JSON
+      # echo "${{ steps.parse.outputs.payload }}"              
         run: |
-          echo "${{ steps.parse.outputs.payload }}"              
+          echo "${{ steps }}"              
 
       - name: 'modify custom fields'
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
