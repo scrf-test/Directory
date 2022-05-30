@@ -6,6 +6,7 @@ env:
   gh_organization: scrf-test
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+  role_levels: ['None', 'Community']
   custom_field_values: '[{ 
     \"name\": \"Role Level\", 
     \"type\": \"single_select\", 
@@ -18,6 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'issues' && (github.event.action == 'assigned' )
     steps:
+      - name: Issue Parse
+        uses: peter-murray/issue-forms-body-parser@v2.0.0
+        with: 
+          issue_id: ${{ github.event.issue.number }}
+          separator: '###'
+          label_marker_start: '>>'
+          label_marker_end: '<<'    
+
+      - name: Show parsed data JSON
+        run: |
+          echo "${{ steps.parse.outputs.payload }}"              
+
       - name: 'modify custom fields'
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
