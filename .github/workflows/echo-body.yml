@@ -1,11 +1,5 @@
 on: issues
 
-env:
-  gh_organization: scrf-test
-  project_id: 8  
-  gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-
-
 jobs:
   job1:
     runs-on: ubuntu-latest
