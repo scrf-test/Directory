@@ -8,7 +8,7 @@ env:
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   custom_field_values: '[{ 
     \"name\": \"Role Level\", 
-    \"type\": \"text\", 
+    \"type\": \"single_select\", 
     \"value\": \"Head\" 
   }]'
 
