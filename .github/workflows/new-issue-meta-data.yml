@@ -23,13 +23,13 @@ jobs:
           label_marker_start: '◾'
           label_marker_end: '◾'                        
 
-      # - name: Echo JQ Keys        
-      #   run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
+      - name: Echo JQ Keys        
+        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
 #"Role Level"
 
       - name: Echo JQ Values
-        run: export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL}
+        run: export ROLE_LEVEL=$(echo "{\"Role Level\":\"Contributor\"}" | jq -r '."Role Level"') && echo ${ROLE_LEVEL}
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
 #"Contributor"
 
