@@ -49,9 +49,9 @@ jobs:
           gh_organization: scrf-test
           project_id: 8
           pb_meta_data: '[{
-            \"name\":\"$key_role_level\",
-            \"type\":\"$field_type\",
-            \"value\":\"$value_role_level\"
+            \"name\":\"Role Level\",
+            \"type\":\"single_select\",
+            \"value\":\"Contributor\"
           },{
             \"name\":\"$key_vertical\",
             \"type\":\"$field_type\",
