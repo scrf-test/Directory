@@ -12,8 +12,6 @@ env:
   
 jobs:
   route-issue-to-project-board:      
-    routes:
-      new: "🆕"     
     runs-on: ubuntu-latest
     steps:
       - name: echo
