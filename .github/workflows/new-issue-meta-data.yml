@@ -46,6 +46,11 @@ jobs:
             \"name\":\"$key\",
             \"type\":\"$field_type\",
             \"value\":\"$value\"
+          },
+          {
+            \"name\":\Vertical"\",
+            \"type\":\"single_select\",
+            \"value\":\"Content\"
           }]'
         with:
           gh_token: ${{ env.gh_project_token }}
