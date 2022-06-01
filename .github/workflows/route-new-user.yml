@@ -1,5 +1,13 @@
 on:
   workflow_call:
+    inputs:
+      issue_id:
+        required: true
+        type: number
+      secrets:
+        envPAT:
+          required: true
+
 
 jobs:
   assign_meta_data:
@@ -10,8 +18,8 @@ jobs:
         id: issue_parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
         with: 
-          github_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          issue_id: 8
+          github_token: ${{ secrets.envPAT }}
+          issue_id: ${{ inputs.issue_id }}
           separator: '###'
           label_marker_start: '◾'
           label_marker_end: '◾'                        
