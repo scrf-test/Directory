@@ -9,13 +9,15 @@ env:
   issue_id: ${{ github.event.issue.number }}
   role_level: "failed"
   # Issue Template Tags
-  issue_type_tag_onbaord_person: "🆕"
-  issue_type_tag_generic: "🛎️"  
-
+  
 jobs:
   route:      
-    if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
-    - run: echo "ok"
+    route-key: 🆕
+    runs-on: ubuntu-latest
+    steps:
+      - name: Route New
+        if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
+        run: echo "ok"
     #uses:
     #  scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
