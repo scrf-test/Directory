@@ -21,7 +21,7 @@ jobs:
       - name: Route Ticket
         id: route
         if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
-        uses: scrf-test/Directory/.github/workflows/routes/new-user.yml
+        uses: scrf-test/Directory/.github/workflows/routes/new-user.yml@main
 
       - name: Issue Parse
         id: issue_parse
