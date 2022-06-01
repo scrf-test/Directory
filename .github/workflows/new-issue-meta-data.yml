@@ -46,9 +46,25 @@ jobs:
             \"name\":\"$key\",
             \"type\":\"$field_type\",
             \"value\":\"$value\"
-          },
-          {
-            \"name\":\Vertical"\",
+          }]'
+        with:
+          gh_token: ${{ env.gh_project_token }}
+          organization: ${{ env.gh_organization }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          operation_mode: custom_field
+          custom_field_values: ${{ env.test_pb_meta_data }}
+      
+
+      - name: Set PB MetaData [Vertical]
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        env:
+          DEBUG_LOG: "true"
+          key: "Role Level"             # replace with jq
+          field_type: "single_select"   
+          value: ${{ steps.jq-value-select.outputs.ROLE_LEVEL }}       # replace with jq
+          test_pb_meta_data: '[{
+            \"name\":\"Vertical\",
             \"type\":\"single_select\",
             \"value\":\"Content\"
           }]'
@@ -59,6 +75,4 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
-      
-      - name: Echo Stuff        
-        run: echo ${ROLE_LEVEL}
+
