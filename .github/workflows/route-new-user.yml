@@ -7,7 +7,7 @@ on:
 
       node_id:
         required: true
-        type: number        
+        type: string        
 
     secrets:
       envPAT:
