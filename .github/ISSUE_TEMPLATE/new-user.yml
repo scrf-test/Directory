@@ -35,7 +35,7 @@ body:
   - type: dropdown
     id: vertical
     attributes:
-      label: Vertical
+      label: ◾Vertical◾
       description: What vertical does this person belong to?
       options:
         - None (Default)
@@ -50,7 +50,7 @@ body:
   - type: dropdown
     id: role-level
     attributes:
-      label: Role Level
+      label: ◾Role Level◾
       description: What role level does this person have?
       options:
         - Community (default)
