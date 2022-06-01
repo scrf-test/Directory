@@ -7,12 +7,13 @@ env:
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
+  issue_key_new_person: '🆕'
 
 jobs:    
   new_issue_person:
     name: issue_assigned
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, '🆕') }}
+    if: ${{ contains(github.event.issue.title, env.issue_key_new_person) }}
     steps:
       - name: Issue Parse
         id: issue_parse
