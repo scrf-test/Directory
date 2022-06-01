@@ -39,17 +39,21 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
-          key: "Role Level"             # replace with jq
+          #Role Value
           field_type: "single_select"   
-          value: ${{ steps.jq-value-select.outputs.ROLE_LEVEL }}       # replace with jq
+          key_role_level: "Role Level"   
+          value_role_level: ${{ steps.jq-value-select.outputs.ROLE_LEVEL }}
+          key_vertical: "Vertical"
+          value_vertical: ${{ steps.jq-value-select.outputs.VERTICAL }}
+
           test_pb_meta_data: '[{
-            \"name\":\"$key\",
+            \"name\":\"$key_role_level\",
             \"type\":\"$field_type\",
-            \"value\":\"$value\"
+            \"value\":\"$value_role_level\"
           },{
-            \"name\":\"Vertical\",
+            \"name\":\"key_vertical\",
             \"type\":\"single_select\",
-            \"value\":\"Discovery\"
+            \"value\":\"value_vertical\"
           }]'
         with:
           gh_token: ${{ env.gh_project_token }}
