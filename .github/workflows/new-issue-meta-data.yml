@@ -29,7 +29,7 @@ jobs:
 #"Role Level"
 
       - name: Echo JQ Values
-        run: ROLE_LEVEL = $(echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.["Role Level"]') && echo $ROLE_LEVEL
+        run: ROLE_LEVEL = $(echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.[\"Role Level\"]') && echo $ROLE_LEVEL
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
 #"Contributor"
 
