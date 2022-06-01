@@ -1,7 +1,2 @@
-jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: New User Route
-        run: |
-          echo "Routing New User to the Project Board!"
+on:
+  workflow_call:
