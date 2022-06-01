@@ -1,6 +1,6 @@
 name: Add New User
 description: Start the onboarding process of a person into the SCRF ecosystem.
-title: "Persons Full Name"
+title: "🆕 Person"
 labels: []
 assignees:
   - SirAh0
@@ -9,13 +9,6 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this new user form!
-
-  - type: input
-    id: full-name
-    attributes:
-      label: Full Name      
-    validations:
-      required: true
 
   - type: input
     id: preferred-contact
