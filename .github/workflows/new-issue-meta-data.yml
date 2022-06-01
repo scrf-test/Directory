@@ -20,8 +20,8 @@ jobs:
           github_token: ${{ env.gh_project_token }}
           issue_id: ${{ env.issue_id }}
           separator: '###'
-          label_marker_start: '⚫'
-          label_marker_end: '⚫'                        
+          label_marker_start: '◾'
+          label_marker_end: '◾'                        
 
       - name: Echo JQ Keys        
         run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
@@ -29,7 +29,7 @@ jobs:
 #"Role Level"
 
       - name: Echo JQ Values
-        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.[]'
+        run: ROLE_LEVEL = $(echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.["Role Level"]') && echo $ROLE_LEVEL
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
 #"Contributor"
 
