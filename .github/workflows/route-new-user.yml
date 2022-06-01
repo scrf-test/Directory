@@ -5,7 +5,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: View issue information
-        run: |
-          echo "🆕 : New Person Added to Directory"
+      - name: Update Issue
+        uses: actions-cool/issues-helper@v1
+        with:
+          title: '🛎️ : Custom Title'
 
