@@ -46,13 +46,11 @@ jobs:
             \"name\":\"$key\",
             \"type\":\"$field_type\",
             \"value\":\"$value\"
-          }
-          {
+          },{
             \"name\":\"Vertical\",
             \"type\":\"single_select\",
             \"value\":\"Discovery\"
-          }
-          ]'
+          }]'
         with:
           gh_token: ${{ env.gh_project_token }}
           organization: ${{ env.gh_organization }}
