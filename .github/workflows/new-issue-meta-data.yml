@@ -9,11 +9,11 @@ env:
   issue_id: ${{ github.event.issue.number }}
   role_level: "failed"  
   # Issue Template Tags
-  issue_type_tag_onbaord_person: "🆕"
+  # issue_type_tag_onbaord_person: "🆕"
 
 jobs:
   route-issue-to-project-board:      
-    if: ${{ contains(github.event.issue.title, "🆕") }}
+    if: ${{ contains(github.event.issue.title, "new") }}
     uses:
       scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
