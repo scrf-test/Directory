@@ -62,7 +62,7 @@ jobs:
   new_issue_generic:
     name: generic_issue
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, env.issue_key_generic ) }}
+    if: ${{ contains(github.event.issue.title, $env.issue_key_generic ) }}
     steps:
       - name: testing
         run: echo "do it"
