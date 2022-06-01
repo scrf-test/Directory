@@ -6,13 +6,14 @@ env:
   gh_organization: scrf-test
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-  issue_id: ${{ github.event.issue.number }}
-  issue_key_new_person: '🆕'
-  issue_key_generic: '🛎️'
+  issue_id: ${{ github.event.issue.number }}  
 
 jobs:    
-  route_new_person:
+  route_new_person:    
     name: Route New Person
+      env:
+        issue_key_new_person: '🆕'
+        issue_key_generic: '🛎️'
     runs-on: ubuntu-latest
     if: contains( env.issue_key_new_person, github.event.issue.title )
     steps:
