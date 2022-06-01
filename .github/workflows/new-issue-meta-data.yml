@@ -17,12 +17,6 @@ jobs:
     name: Assign Meta Data
     runs-on: ubuntu-latest
     steps:
-      - name: Route Ticket
-        id: route-ticket
-#        if: ${{ contains(github.event.issue.title, '🆕') }}
-        - run: |
-          echo "${{github.event.issue.title}}"
-
       - name: Issue Parse
         id: issue_parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
