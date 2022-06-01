@@ -15,7 +15,8 @@ env:
 jobs:
   route:      
     if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
-    uses:
-      scrf-test/Directory/.github/workflows/route-new-user.yml@main
+    run: echo "ok"
+    #uses:
+    #  scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
 
