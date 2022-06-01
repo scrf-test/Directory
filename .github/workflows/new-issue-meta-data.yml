@@ -25,21 +25,14 @@ jobs:
 
       - name: Echo JQ Keys        
         run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
+#Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
+#"Role Level"
 
       - name: Echo JQ Values
         run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.[]'
+#Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
+#"Contributor"
 
-# echo "{\"Role Level\":\"Contributor\"}" | jq 'keys[]'
-# echo "{\"Role Level\":\"Contributor\"}" | jq '.[]'
-
-# echo <<<EOF
-#          custom_field_values: '[{ 
-#              \"name\": \"${{env.key}}\", 
-#              \"type\": \"single_select\", 
-#              \"value\": \"${{env.value}}\" 
-#            }]' 
-#
-#EOF
       - name: Set PB MetaData [Role Level]
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
@@ -48,9 +41,9 @@ jobs:
           field_type: "single_select"
           value: "Contributor"          
           test_pb_meta_data: '[{
-            \"name\":\"${{env.key}}\",
-            \"type\":\"${{env.field_type}}\",
-            \"value\":\"${{env.value}}\"
+            \"name\":\"$key\",
+            \"type\":\"$field_type\",
+            \"value\":\"$value\"
           }]'
         with:
           gh_token: ${{ env.gh_project_token }}
