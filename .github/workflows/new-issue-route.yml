@@ -57,5 +57,10 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
-      
+    
+
+    if: ${{ contains(github.event.issue.title, 'brian') }}
+    steps:
+      - name: test branch
+        run: echo "lets go"
       
