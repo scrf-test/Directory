@@ -17,3 +17,7 @@ jobs:
     uses:
       scrf-test/Directory/.github/workflows/route-new-user.yml@main
   
+  route-issue-b:      
+    if: ${{ contains(github.event.issue.title, '🛎️') }}
+    uses:
+      scrf-test/Directory/.github/workflows/route-new-user-b.yml@main
