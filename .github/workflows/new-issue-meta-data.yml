@@ -37,8 +37,8 @@ jobs:
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
-          key: "Role Level"
-          field_type: "single_select"
+          key: "Role Level"             # replace with jq
+          field_type: "single_select"   # replace with jq
           value: "Contributor"          
           test_pb_meta_data: '[{
             \"name\":\"$key\",
@@ -53,25 +53,3 @@ jobs:
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
         
-
-# - name: Set Shared Data
-#   env:        
-#     payload: ${{ steps.parse.outputs.payload }}
-  
-
-  # run: |
-    # echo "payload is: ${{ env.payload }}"
-# echo "${{ steps.parse.outputs.payload }}"              
-# OUTPUT      
-# Run echo "{"Role Level":"Contributor"}"
-# {Role Level:Contributor}
-# key : "Role Level"
-# value : "Contributor"
-# TODO: Map... [{ \"name\" : \"${{env.key}}"\, \"type\":\"single_select", \"value\":\"${{env.value}}\"]        
-
-
-#          custom_field_values: '[{ 
-#              \"name\": \"${{env.key}}\", 
-#              \"type\": \"single_select\", 
-#              \"value\": \"${{env.value}}\" 
-#            }]'          
