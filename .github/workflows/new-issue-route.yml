@@ -7,9 +7,10 @@ env:
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
-  role_level: "failed"
 
 jobs:
+  
+  if: ${{ contains(github.event.issue.title, '🆕') }}
   issue_assigned:
     name: issue_assigned
     runs-on: ubuntu-latest
