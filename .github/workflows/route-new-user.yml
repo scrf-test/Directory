@@ -6,7 +6,9 @@ on:
         type: number
       secrets:
         envPAT:
+          description: 'A token passed in from caller'          
           required: true
+          type: string
 
 
 jobs:
