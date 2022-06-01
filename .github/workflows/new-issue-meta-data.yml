@@ -2,10 +2,27 @@ name: New Issue Meta Data
 
 on: issues
 
+env:
+  gh_organization: scrf-test
+  project_id: 8  
+  gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+  issue_id: ${{ github.event.issue.number }}
+  role_level: "failed"
+  # Issue Template Tags
+  
 jobs:
-  job1:
+  route-issue-to-project-board:      
+    routes:
+      new: "🆕"     
     runs-on: ubuntu-latest
     steps:
-      - name: View issue information
-        run: |
-          echo "Issue title: ${{ github.event.issue.title }}"  
+      - name: echo
+        run: echo "echo"
+#      - name: Route New
+#        if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
+#        run: echo "ok"
+      
+
+    #uses:
+    #  scrf-test/Directory/.github/workflows/route-new-user.yml@main
+
