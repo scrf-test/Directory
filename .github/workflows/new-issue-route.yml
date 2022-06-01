@@ -1,4 +1,4 @@
-name: New Issue Meta Data
+name: New Issue Route
 
 on: issues
 
@@ -20,4 +20,4 @@ jobs:
   route-issue-b:      
     if: ${{ contains(github.event.issue.title, '🛎️') }}
     uses:
-      scrf-test/Directory/.github/workflows/route-new-user-b.yml@main
+      scrf-test/Directory/.github/workflows/route-generic.yml@main
