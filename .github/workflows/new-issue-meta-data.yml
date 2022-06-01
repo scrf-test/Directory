@@ -24,10 +24,10 @@ jobs:
           label_marker_end: '>>'                        
 
       - name: Echo JQ Keys        
-        run: echo ${{ steps.issue_parse.outputs.payload }}  | jq 'keys[]'
+        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
 
       - name: Echo JQ Values
-        run: echo ${{ steps.issue_parse.outputs.payload }}  | jq '.[]'
+        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.[]'
 
 # echo "{\"Role Level\":\"Contributor\"}" | jq 'keys[]'
 # echo "{\"Role Level\":\"Contributor\"}" | jq '.[]'
