@@ -43,7 +43,7 @@ jobs:
           test_pb_meta_data: '[{
             \"name\":\"$key\",
             \"type\":\"$field_type\",
-            \"value\":\"$value\"
+            \"value\":\"${{env.ROLE_LEVEL}}\"
           }]'
         with:
           gh_token: ${{ env.gh_project_token }}
@@ -53,3 +53,5 @@ jobs:
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
         
+        - name: Echo Stuff
+          run: echo ${{ env.value }}
