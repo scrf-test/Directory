@@ -8,5 +8,5 @@ jobs:
       - name: Update Issue
         uses: actions-cool/issues-helper@v1
         with:
-          title: '🛎️ : Custom Title'
+          title: '🆕 : @github'
 
