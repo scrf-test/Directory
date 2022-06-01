@@ -2,13 +2,56 @@ on:
   workflow_call:
 
 jobs:
-  job1:
+  assign_meta_data:
+    name: Assign Meta Data
     runs-on: ubuntu-latest
-    steps:
-      - name: Update Issue
-        uses: actions-cool/issues-helper@v1
-        with:        
-          actions: 'update-issue'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: '🆕 : @github'
+    steps:         
+      - name: Issue Parse
+        id: issue_parse
+        uses: peter-murray/issue-forms-body-parser@v2.0.0
+        with: 
+          github_token: ${{ env.gh_project_token }}
+          issue_id: ${{ env.issue_id }}
+          separator: '###'
+          label_marker_start: '◾'
+          label_marker_end: '◾'                        
 
+#      - name: Echo JQ Keys        
+#        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
+#Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
+#"Role Level"
+
+      - name: Select JQ Values
+        id: jq-values
+        run: |
+          echo "::set-output name=ROLE_LEVEL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"')" 
+          echo "::set-output name=VERTICAL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"')" 
+
+      - name: Set PB MetaData [Role Level]
+        uses: leonsteinhaeuser/project-beta-automations@v1.2.1
+        env:
+          DEBUG_LOG: "true"
+          field_type: "single_select"   
+          key_role_level: "Role Level"   
+          value_role_level: ${{ steps.jq-values.outputs.ROLE_LEVEL }}
+          key_vertical: "Vertical"
+          value_vertical: ${{ steps.jq-values.outputs.VERTICAL }}
+
+          test_pb_meta_data: '[{
+            \"name\":\"$key_role_level\",
+            \"type\":\"$field_type\",
+            \"value\":\"$value_role_level\"
+          },{
+            \"name\":\"$key_vertical\",
+            \"type\":\"$field_type\",
+            \"value\":\"$value_vertical\"
+          }]'
+        with:
+          gh_token: ${{ env.gh_project_token }}
+          organization: ${{ env.gh_organization }}
+          project_id: ${{ env.project_id }}
+          resource_node_id: ${{ github.event.issue.node_id }}
+          operation_mode: custom_field
+          custom_field_values: ${{ env.test_pb_meta_data }}
+      
+      
