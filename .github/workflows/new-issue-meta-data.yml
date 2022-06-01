@@ -13,7 +13,7 @@ env:
 
 jobs:
   route-issue-to-project-board:      
-    if: contains(github.event.issue.title, env.issue_type_tags_onboard_person)
+    if: contains(github.event.issue.title, $env.issue_type_tags_onboard_person)
     uses:
       scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
