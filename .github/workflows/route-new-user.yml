@@ -10,8 +10,8 @@ jobs:
         id: issue_parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
         with: 
-          github_token: ${{ env.gh_project_token }}
-          issue_id: ${{ env.issue_id }}
+          github_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          issue_id: 8
           separator: '###'
           label_marker_start: '◾'
           label_marker_end: '◾'                        
