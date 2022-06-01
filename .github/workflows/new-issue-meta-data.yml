@@ -31,7 +31,7 @@ jobs:
 
       - name: Select JQ Value for Role Level
         id: jq-value-select
-        run: export role_level=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"
+        run: export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
 #"Contributor"
 
