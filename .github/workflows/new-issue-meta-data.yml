@@ -11,7 +11,7 @@ env:
   # Issue Template Tags
   
 jobs:
-  route-issue-to-project-board:      
+  job1:      
     runs-on: ubuntu-latest
     steps:
       - name: echo
