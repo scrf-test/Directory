@@ -3,9 +3,9 @@ name: New Issue Meta Data
 on: issues
 
 jobs:
-  job1:      
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
+      - name: View issue information
         run: |
-        echo "echo"
+          echo "Issue title: ${{ github.event.issue.title }}"  
