@@ -53,5 +53,5 @@ jobs:
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
         
-        - name: Echo Stuff
-          run: echo ${{ env.value }}
+      - name: Echo Stuff
+        run: echo ${{ env.value }}
