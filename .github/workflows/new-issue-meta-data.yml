@@ -16,11 +16,9 @@ jobs:
 #      new: "🆕"     
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo "echo"
-#      - name: Route New
-#        if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
-#        run: echo "ok"
+      - name: Route New
+        if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
+        run: echo "ok"
       
 
     #uses:
