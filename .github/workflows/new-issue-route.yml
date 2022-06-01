@@ -23,8 +23,12 @@ jobs:
           separator: '###'
           label_marker_start: '◾'
           label_marker_end: '◾'                        
-      
-      if: ${{ contains(github.event.issue.title, '🆕') }}
+
+#      - name: Echo JQ Keys        
+#        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
+#Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
+#"Role Level"
+
       - name: Select JQ Values
         id: jq-values
 # export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
@@ -32,6 +36,7 @@ jobs:
         run: |
           echo "::set-output name=ROLE_LEVEL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"')" 
           echo "::set-output name=VERTICAL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"')" 
+
       - name: Set PB MetaData [Role Level]
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
@@ -58,3 +63,5 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
+      
+      
