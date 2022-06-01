@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Route Ticket
         id: route-ticket
-        if: ${{ contains(github.event.issue.title, '🆕') }}
+#        if: ${{ contains(github.event.issue.title, '🆕') }}
         - run: |
           echo "${{github.event.issue.title}}"
 
