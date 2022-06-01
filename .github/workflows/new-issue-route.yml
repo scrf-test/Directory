@@ -14,7 +14,7 @@ jobs:
   route_new_person:
     name: Route New Person
     runs-on: ubuntu-latest
-    if: contains( github.event.issue.title, env.issue_key_new_person )
+    if: contains( env.issue_key_new_person, github.event.issue.title )
     steps:
       - name: Issue Parse
         id: issue_parse
