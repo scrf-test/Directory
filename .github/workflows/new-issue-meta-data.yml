@@ -51,9 +51,9 @@ jobs:
             \"type\":\"$field_type\",
             \"value\":\"$value_role_level\"
           },{
-            \"name\":\"key_vertical\",
-            \"type\":\"single_select\",
-            \"value\":\"value_vertical\"
+            \"name\":\"$key_vertical\",
+            \"type\":\"$field_type\",
+            \"value\":\"$value_vertical\"
           }]'
         with:
           gh_token: ${{ env.gh_project_token }}
