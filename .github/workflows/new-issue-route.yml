@@ -11,8 +11,8 @@ env:
   issue_key_generic: '🛎️'
 
 jobs:    
-  new_issue_person:
-    name: issue_assigned
+  route_new_person:
+    name: Route New Person
     runs-on: ubuntu-latest
     if: ${{ contains( github.event.issue.title, '🆕' ) }}
     steps:
@@ -59,10 +59,10 @@ jobs:
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
       
-  new_issue_generic:
+  route_new_generic:
     name: generic_issue
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.title,  '🛎️' ) }}
     steps:
       - name: testing
-        run: echo "do it"
+        run: echo "route a generic issue"
