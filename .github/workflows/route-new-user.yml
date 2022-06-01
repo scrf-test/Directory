@@ -4,11 +4,10 @@ on:
       issue_id:
         required: true
         type: number
-      secrets:
-        envPAT:
-          description: 'A token passed in from caller'          
-          required: true
-          type: string
+    secrets:
+      envPAT:
+        description: 'A token passed in from caller'          
+        required: true    
 
 
 jobs:
