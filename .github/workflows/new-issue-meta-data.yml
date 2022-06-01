@@ -29,13 +29,10 @@ jobs:
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
 #"Role Level"
 
-      - name: Select JQ Value - Role Level
-        id: jq-value-role-level
+      - name: Select JQ Values
+        id: jq-values
         run: export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"
-
-      - name: Select JQ Value - Vertical
-        id: jq-value-vertical
-        run: export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"
+        run: export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
 
       - name: Set PB MetaData [Role Level]
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
@@ -44,9 +41,9 @@ jobs:
           #Role Value
           field_type: "single_select"   
           key_role_level: "Role Level"   
-          value_role_level: ${{ steps.jq-value-role-level.outputs.ROLE_LEVEL }}
+          value_role_level: ${{ steps.jq-values.outputs.ROLE_LEVEL }}
           key_vertical: "Vertical"
-          value_vertical: ${{ steps.jq-value-vertical.outputs.VERTICAL }}
+          value_vertical: ${{ steps.jq-values.outputs.VERTICAL }}
 
           test_pb_meta_data: '[{
             \"name\":\"$key_role_level\",
