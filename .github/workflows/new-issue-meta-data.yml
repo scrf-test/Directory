@@ -40,7 +40,7 @@ jobs:
           DEBUG_LOG: "true"
           key: "Role Level"             # replace with jq
           field_type: "single_select"   
-          value: ${{ toJSON(steps.issue_parse.outputs.payload)["Role Level"] }}         # replace with jq
+          value: ${{ toJSON(steps.issue_parse.outputs.payload.$key) }}         # replace with jq
           test_pb_meta_data: '[{
             \"name\":\"$key\",
             \"type\":\"$field_type\",
