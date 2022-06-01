@@ -8,6 +8,7 @@ env:
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
   issue_key_new_person: '🆕'
+  issue_key_generic: '🛎️'
 
 jobs:    
   new_issue_person:
@@ -61,7 +62,7 @@ jobs:
   new_issue_generic:
     name: generic_issue
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, 'brian') }}
+    if: ${{ contains(github.event.issue.title, env.issue_key_generic ) }}
     steps:
       - name: testing
         run: echo "do it"
