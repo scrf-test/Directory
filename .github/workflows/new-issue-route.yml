@@ -24,15 +24,8 @@ jobs:
           label_marker_start: '◾'
           label_marker_end: '◾'                        
 
-#      - name: Echo JQ Keys        
-#        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
-#Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
-#"Role Level"
-
       - name: Select JQ Values
         id: jq-values
-# export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
-# export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"  
         run: |
           echo "::set-output name=ROLE_LEVEL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"')" 
           echo "::set-output name=VERTICAL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"')" 
