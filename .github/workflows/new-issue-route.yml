@@ -2,10 +2,9 @@ name: New Issue Route
 
 on: issues
 
-env:
-  gh_organization: scrf-test
-  project_id: 8      
-  role_level: "failed"  
+env:  
+  node_id: 8      
+  
   # Issue Template Tags
   issue_type_tags_onboard_person: '🆕'
 
@@ -16,6 +15,7 @@ jobs:
       scrf-test/Directory/.github/workflows/route-new-user.yml@main
     with:      
       issue_id: ${{ github.event.issue.number }}
+      node_id: ${{ github.event.issue.node_id }}
     secrets:
       envPAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
   
