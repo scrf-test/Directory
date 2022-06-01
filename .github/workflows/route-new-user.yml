@@ -28,10 +28,8 @@ jobs:
           label_marker_start: '◾'
           label_marker_end: '◾'                        
 
-#      - name: Echo JQ Keys        
-#        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'
-#Run echo "{\"Role Level\":\"Contributor\"}"  | jq 'keys[]'
-#"Role Level"
+      - name: Echo JQ Keys        
+        run: echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq 'keys[]'        
 
       - name: Select JQ Values
         id: jq-values
@@ -50,7 +48,6 @@ jobs:
           value_vertical: ${{ steps.jq-values.outputs.VERTICAL }}
           gh_organization: scrf-test
           project_id: 8
-
           pb_meta_data: '[{
             \"name\":\"$key_role_level\",
             \"type\":\"$field_type\",
@@ -60,6 +57,7 @@ jobs:
             \"type\":\"$field_type\",
             \"value\":\"$value_vertical\"
           }]'
+
         with:
           gh_token: ${{ secrets.envPAT }}
           organization: ${{ env.gh_organization }}
