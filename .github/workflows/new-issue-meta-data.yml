@@ -29,7 +29,7 @@ jobs:
 #"Role Level"
 
       - name: Echo JQ Values
-        run: ROLE_LEVEL = $(echo ${{ toJSON(steps.issue_parse.outputs.payload) }}  | jq '.[\"Role Level\"]') && echo $ROLE_LEVEL
+        run: export ROLE_LEVEL=$(echo "{\"Role Level\":\"Contributor\"}" | jq -r '."Role Level"') && echo ${ROLE_LEVEL}
 #Run echo "{\"Role Level\":\"Contributor\"}"  | jq '.[]'
 #"Contributor"
 
@@ -39,7 +39,7 @@ jobs:
           DEBUG_LOG: "true"
           key: "Role Level"             # replace with jq
           field_type: "single_select"   
-          value: "Contributor"          # replace with jq
+          value: ${ROLE_LEVEL}          # replace with jq
           test_pb_meta_data: '[{
             \"name\":\"$key\",
             \"type\":\"$field_type\",
