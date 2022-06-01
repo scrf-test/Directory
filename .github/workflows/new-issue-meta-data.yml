@@ -24,7 +24,7 @@ jobs:
           label_marker_end: '>>'                        
 
       - name: Echo JQ Keys        
-        run: echo ${{ steps.issue_parse.outputs.payload }}  | jq keys[]\'
+        run: echo ${{ steps.issue_parse.outputs.payload }}  | jq 'keys[]\'
 
       - name: Echo JQ Values
         run: echo ${{ steps.issue_parse.outputs.payload }}  | jq '.[]\'
