@@ -8,12 +8,20 @@ env:
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
   role_level: "failed"
+  # Issue Template Tags
+  issue_type_tag_onbaord_person: "🆕"
+  issue_type_tag_generic: "🛎️"  
 
 jobs:
-  issue_assigned:
-    name: issue_assigned
+  assign_meta_data:
+    name: Assign Meta Data
     runs-on: ubuntu-latest
     steps:
+      - name: Route Ticket
+        id: route
+        if: ${{ contains(github.event.issue.title, issue_type_tag_onbaord_person) }}
+        - run: echo "Ticket title has 🆕"
+
       - name: Issue Parse
         id: issue_parse
         uses: peter-murray/issue-forms-body-parser@v2.0.0
@@ -31,8 +39,6 @@ jobs:
 
       - name: Select JQ Values
         id: jq-values
-# export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
-# export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"  
         run: |
           echo "::set-output name=ROLE_LEVEL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"')" 
           echo "::set-output name=VERTICAL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"')" 
