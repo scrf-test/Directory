@@ -7,17 +7,13 @@ env:
   project_id: 8  
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
-  role_level: "failed"
+  role_level: "failed"  
   # Issue Template Tags
-  
+  issue_type_tag_onbaord_person: "🆕"
+
 jobs:
   route-issue-to-project-board:      
-#    routes:
-#      new: "🆕"     
-    runs-on: ubuntu-latest
-    steps:
-      - name: Route New
-        if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
-        uses:
-          scrf-test/Directory/.github/workflows/route-new-user.yml@main
+    if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
+    uses:
+      scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
