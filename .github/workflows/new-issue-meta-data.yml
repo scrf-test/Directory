@@ -38,8 +38,8 @@ jobs:
         env:
           DEBUG_LOG: "true"
           key: "Role Level"             # replace with jq
-          field_type: "single_select"   # replace with jq
-          value: "Contributor"          
+          field_type: "single_select"   
+          value: "Contributor"          # replace with jq
           test_pb_meta_data: '[{
             \"name\":\"$key\",
             \"type\":\"$field_type\",
