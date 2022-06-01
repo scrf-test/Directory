@@ -14,7 +14,7 @@ jobs:
   new_issue_person:
     name: issue_assigned
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.issue.title, $env.issue_key_new_person) }}
+    if: contains( ${{ github.event.issue.title }}, ${{env.issue_key_new_person}} )
     steps:
       - name: Issue Parse
         id: issue_parse
