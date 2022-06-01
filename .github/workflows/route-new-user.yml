@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Update Issue
         uses: actions-cool/issues-helper@v1
-        with:
+        with:        
+          actions: 'update-issue'
+          token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           title: '🆕 : @github'
 
