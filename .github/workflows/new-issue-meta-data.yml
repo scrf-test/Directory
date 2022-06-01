@@ -18,6 +18,9 @@ jobs:
       - name: Route New
         if: contains(github.event.issue.title, env.issue_type_tag_onbaord_person)
         run: echo "ok"
+      
+      - name: echo
+        run: echo "echo"
     #uses:
     #  scrf-test/Directory/.github/workflows/route-new-user.yml@main
 
