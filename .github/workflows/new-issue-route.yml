@@ -9,11 +9,11 @@ env:
   issue_id: ${{ github.event.issue.number }}
 
 jobs:
-  
-  if: ${{ contains(github.event.issue.title, '🆕') }}
+    
   issue_assigned:
     name: issue_assigned
     runs-on: ubuntu-latest
+    if: ${{ contains(github.event.issue.title, '🆕') }}
     steps:
       - name: Issue Parse
         id: issue_parse
