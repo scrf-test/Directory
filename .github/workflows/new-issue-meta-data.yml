@@ -12,7 +12,7 @@ env:
   
 jobs:
   route:      
-    route-key: 🆕
+    route-key: "🆕"
     runs-on: ubuntu-latest
     steps:
       - name: Route New
