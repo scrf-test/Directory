@@ -31,15 +31,16 @@ jobs:
 
       - name: Select JQ Values
         id: jq-values
+# export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
+# export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"  
         run: |
-          export ROLE_LEVEL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"') && echo ${ROLE_LEVEL} &&  echo "::set-output name=ROLE_LEVEL::${ROLE_LEVEL}"
-          export VERTICAL=$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"') && echo ${VERTICAL} &&  echo "::set-output name=VERTICAL::${VERTICAL}"              
+          echo "::set-output name=ROLE_LEVEL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Role Level"')" 
+          echo "::set-output name=VERTICAL::$(echo ${{ toJSON(steps.issue_parse.outputs.payload) }} | jq -r '."Vertical"')" 
 
       - name: Set PB MetaData [Role Level]
         uses: leonsteinhaeuser/project-beta-automations@v1.2.1
         env:
           DEBUG_LOG: "true"
-          #Role Value
           field_type: "single_select"   
           key_role_level: "Role Level"   
           value_role_level: ${{ steps.jq-values.outputs.ROLE_LEVEL }}
