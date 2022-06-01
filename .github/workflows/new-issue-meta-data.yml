@@ -9,8 +9,8 @@ env:
   issue_id: ${{ github.event.issue.number }}
   role_level: "failed"
   # Issue Template Tags
-  # issue_type_tag_onbaord_person: "🆕"
-  # issue_type_tag_generic: "🛎️"  
+  issue_type_tag_onbaord_person: "🆕"
+  issue_type_tag_generic: "🛎️"  
 
 jobs:
   assign_meta_data:
@@ -20,7 +20,7 @@ jobs:
 
       - name: Route Ticket
         id: route
-        if: contains(github.event.issue.title, '🆕')
+        if: contains(github.event.issue.title, issue_type_tag_onbaord_person)
         run: |
           echo "${{github.event.issue.title}}"
 
