@@ -8,9 +8,8 @@ env:
   gh_project_token: ${{ secrets.ADD_TO_PROJECT_PAT }}
   issue_id: ${{ github.event.issue.number }}
 
-jobs:
-    
-  issue_assigned:
+jobs:    
+  new_issue_person:
     name: issue_assigned
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.title, '🆕') }}
@@ -57,10 +56,11 @@ jobs:
           resource_node_id: ${{ github.event.issue.node_id }}
           operation_mode: custom_field
           custom_field_values: ${{ env.test_pb_meta_data }}
-    
-
+      
+  new_issue_generic:
+    name: generic_issue
+    runs-on: ubuntu-latest
     if: ${{ contains(github.event.issue.title, 'brian') }}
     steps:
-      - name: test branch
-        run: echo "lets go"
-      
+      - name: testing
+        run: echo "do it"
