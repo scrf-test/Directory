@@ -4,19 +4,17 @@
 
 [Header Three](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-three)
 
-
 # Header One
-# A collapsible section with markdown
 <details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+  <summary>Click to expand!</summary> 
+- some stuff
+- some stuff
+- some stuff
+- some stuff
+- some stuff
+- some stuff
+- some stuff
 </details>
-
 
 # Header Two
 - some stuff
