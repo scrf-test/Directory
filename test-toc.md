@@ -7,13 +7,15 @@
 # Header One
 <details>
   <summary>Click to expand!</summary> 
-- some stuff
-- some stuff
-- some stuff
-- some stuff
-- some stuff
-- some stuff
-- some stuff
+
+  - some stuff
+  - some stuff
+  - some stuff
+  - some stuff
+  - some stuff
+  - some stuff
+  - some stuff
+  
 </details>
 
 # Header Two
