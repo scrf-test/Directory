@@ -16,7 +16,7 @@ Please use this as a reference guide when writing for SCRF. With every piece of 
 
 **Provide Value** The writer should understand the topic and use simple words and sentences. Before writing, ask: What purpose does this serve? Who is going to read it? What do they need to know?
 
-**Be Open and Respectful** Treat readers with the respect they deserve. Remember they are busy, coming from everywhere, and with varied backgrounds. At SCRF, we want to inform while being considerate, impartial, and inclusive.
+`**Be Open and Respectful** Treat readers with the respect they deserve. Remember they are busy, coming from everywhere, and with varied backgrounds. At SCRF, we want to inform while being considerate, impartial, and inclusive.`
 </details>
 
 
