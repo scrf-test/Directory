@@ -1,8 +1,8 @@
-[Header One]()
+[Header One](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-one)
 
-[Header One]()
+[Header Two](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-two)
 
-[Header One]()
+[Header Three](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-three)
 
 
 # Header One
