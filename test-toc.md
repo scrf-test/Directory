@@ -10,10 +10,11 @@ This is a one sentence description of what you will find underneath.
   <summary>🎯 Recurring Events</summary> 
 
   
-  ## Weekly Community Calls
+  *Weekly Community Calls*
   This is something about the community calls.
   [Learn More](https://github.com/smartcontractresearchforum/docs/blob/main/en/content_community_calls.md)
-  ## Reading Group
+  
+  *Reading Group*
   
 </details>
 
