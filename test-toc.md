@@ -5,7 +5,11 @@
 [Header Three](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-three)
 
 # Principles and Intent
-```The SCRF Style Guide should be used to write clear and consistent content across teams and channels regardless of whether the writer is internal or external. ```
+> The SCRF Style Guide should be used to write clear and consistent content across teams and channels regardless of whether the writer is internal or external.
+>
+> this is also in the quote
+this is not in the quote
+
 
 <details>  
   <summary>📖 Reference Guide</summary> 
