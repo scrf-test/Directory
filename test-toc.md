@@ -5,8 +5,8 @@
 [Header Three](https://github.com/scrf-test/Directory/blob/main/test-toc.md#header-three)
 
 # Header One
-<details>
-  This is a one sentence description of what you will find underneath.
+This is a one sentence description of what you will find underneath.
+<details>  
   <summary>Click to expand!</summary> 
 
   - some stuff
