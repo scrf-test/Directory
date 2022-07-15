@@ -6,6 +6,7 @@
 
 # Header One
 <details>
+  This is a one sentence description of what you will find underneath.
   <summary>Click to expand!</summary> 
 
   - some stuff
