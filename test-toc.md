@@ -8,6 +8,7 @@
 > The SCRF Style Guide should be used to write clear and consistent content across teams and channels regardless of whether the writer is internal or external.
 >
 > this is also in the quote
+
 this is not in the quote
 
 
