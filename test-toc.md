@@ -8,11 +8,14 @@
 The SCRF Style Guide should be used to write clear and consistent content across teams and channels regardless of whether the writer is internal or external. 
 
 <details>  
-  <summary>Please use this as a reference guide when writing for SCRF. With every piece of content, aim to:</summary> 
+  <summary>📖 Reference Guide</summary> 
 
-
+Please use this as a reference guide when writing for SCRF. With every piece of content, aim to:
+ 
 Educate: Give readers the exact information they need to know while breaking down concepts into the simplest terms possible. The writer is considered to be the expert educating the reader who may not have access to the same background information.
+
 Provide Value: The writer should understand the topic and use simple words and sentences. Before writing, ask: What purpose does this serve? Who is going to read it? What do they need to know?
+
 Be Open and Respectful: Treat readers with the respect they deserve. Remember they are busy, coming from everywhere, and with varied backgrounds. At SCRF, we want to inform while being considerate, impartial, and inclusive.
 </details>
 
